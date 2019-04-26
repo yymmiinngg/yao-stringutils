@@ -1,5 +1,10 @@
-let { StringUtils, bindStringPrototype } = require('./yao_stringutils')
+# yao-stringutils
 
+一个JAVA程序员编写的字符串处理工具，诸如toString,isEmpty,isTrimEmpty,contains,getLeft,getRight,getSection……函数。
+
+## StringUtils
+
+```
 console.log('=== toString(obj) =========================================')
 console.log('toString', StringUtils.toString(undefined))
 console.log('toString', StringUtils.toString(null))
@@ -134,7 +139,135 @@ console.log('getSectionOuter', StringUtils.getSectionOuter('aaa|bbb|ccc|ddd|eee'
 console.log('getSectionOuter', StringUtils.getSectionOuter('aaa|bbb|ccc|ddd|eee', '', '|'))
 console.log('getSectionOuter', StringUtils.getSectionOuter('aaa|bbb|ccc|ddd|eee', '', ''))
 console.log()
+```
+输出
+```
+=== toString(obj) =========================================
+toString 
+toString 
+toString 
+toString NaN
+toString false
+toString true
+toString 
+toString [object Object]
 
+=== contains(str, substr) =========================================
+contains false
+contains false
+contains true
+contains true
+contains true
+contains true
+
+=== isEmpty(obj) =========================================
+isEmpty true
+isEmpty true
+isEmpty true
+isEmpty false
+isEmpty false
+isEmpty true
+isEmpty false
+
+=== isTrimEmpty(obj) =========================================
+isTrimEmpty true
+isTrimEmpty true
+isTrimEmpty true
+isTrimEmpty false
+isTrimEmpty false
+isTrimEmpty true
+isTrimEmpty false
+
+=== allNotEmpty(arr) =========================================
+allNotEmpty false
+allNotEmpty false
+allNotEmpty false
+allNotEmpty false
+allNotEmpty false
+allNotEmpty true
+allNotEmpty true
+allNotEmpty false
+allNotEmpty false
+
+=== allNotTrimEmpty(arr) =========================================
+allNotTrimEmpty false
+allNotTrimEmpty false
+allNotTrimEmpty false
+allNotTrimEmpty false
+allNotTrimEmpty false
+allNotTrimEmpty true
+allNotTrimEmpty false
+allNotTrimEmpty false
+allNotTrimEmpty false
+
+=== toLength(str, len, options) =========================================
+toLength | abc      |
+toLength | abcde... |
+toLength | abc      |
+toLength |   abc    |
+toLength |      abc |
+toLength | abc----- |
+toLength | --abc--- |
+toLength | -----abc |
+toLength | abcdefgh |
+toLength | abcdefg. |
+toLength | abcdef.. |
+toLength | abcde... |
+
+=== getLeft(str, pos) =========================================
+getLeft aaa
+getLeft null
+getLeft null
+getLeft null
+getLeft aaa
+
+=== getLeftOuter(str, pos) =========================================
+getLeftOuter aaa|bbb|ccc|ddd
+getLeftOuter null
+getLeftOuter null
+getLeftOuter null
+getLeftOuter aaa
+
+=== getRight(str, pos) =========================================
+getRight eee
+getRight null
+getRight null
+getRight null
+getRight aaa
+
+=== getRightOuter(str, pos) =========================================
+getRightOuter bbb|ccc|ddd|eee
+getRightOuter null
+getRightOuter null
+getRightOuter null
+getRightOuter aaa
+
+=== getSection(str, left, right) =========================================
+getSection bbb
+getSection null
+getSection null
+getSection undefined
+getSection null
+getSection null
+getSection bbb|ccc|ddd|eee
+getSection aaa
+getSection aaa|bbb|ccc|ddd|eee
+
+=== getSectionOuter(str, left, right) =========================================
+getSectionOuter bbb|ccc|ddd
+getSectionOuter null
+getSectionOuter null
+getSectionOuter undefined
+getSectionOuter null
+getSectionOuter null
+getSectionOuter bbb|ccc|ddd|eee
+getSectionOuter aaa|bbb|ccc|ddd
+getSectionOuter aaa|bbb|ccc|ddd|eee
+```
+
+## bindStringPrototype()
+
+```
 bindStringPrototype()
 console.log('=== bindStringPrototype() =========================================')
 console.log('contains'.toLength(20), '|', 'abc'.contains('b'))
@@ -145,3 +278,16 @@ console.log('getLeft'.toLength(20), '|', 'aaa|bbb|ccc|ddd|eee'.getLeft('|'))
 console.log('getLeftOuter'.toLength(20), '|', 'aaa|bbb|ccc|ddd|eee'.getLeftOuter('|'))
 console.log('getSection'.toLength(20), '|', 'aaa|bbb|ccc|ddd|eee'.getSection('|', '|'))
 console.log('getSectionOuter'.toLength(20), '|', 'aaa|bbb|ccc|ddd|eee'.getSectionOuter('|', '|'))
+```
+输出
+```
+=== bindStringPrototype() =========================================
+contains             | true
+toLength             | abc     |
+getRight             | eee
+getRightOuter        | bbb|ccc|ddd|eee
+getLeft              | aaa
+getLeftOuter         | aaa|bbb|ccc|ddd
+getSection           | bbb
+getSectionOuter      | bbb|ccc|ddd
+```
