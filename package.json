@@ -1,14 +1,19 @@
 {
   "name": "yao-stringutils",
   "version": "1.0.0",
-  "description": "",
   "main": "yao_stringutils.js",
+  "description": "字符串处理工具集，诸如'contains', 'toLength', 'getLeft', 'getLeftOuter', 'getRight', 'getRightOuter', 'getSection', 'getSectionOuter'……函数",
+  "keywords": [
+    "string",
+    "Utils",
+    "StringUtils"
+  ],
   "scripts": {
     "test": "node test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/yymmiinngg/yao-stringutils.git"
+    "url": "git@github.com/yymmiinngg/yao-stringutils.git"
   },
   "author": "Monster Yao",
   "license": "ISC",

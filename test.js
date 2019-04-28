@@ -135,8 +135,9 @@ console.log('getSectionOuter', StringUtils.getSectionOuter('aaa|bbb|ccc|ddd|eee'
 console.log('getSectionOuter', StringUtils.getSectionOuter('aaa|bbb|ccc|ddd|eee', '', ''))
 console.log()
 
-bindStringPrototype()
 console.log('=== bindStringPrototype() =========================================')
+let methods = bindStringPrototype()
+console.log('binded', methods.join(','));
 console.log('contains'.toLength(20), '|', 'abc'.contains('b'))
 console.log('toLength'.toLength(20), '|', 'abc'.toLength(8) + "|")
 console.log('getRight'.toLength(20), '|', 'aaa|bbb|ccc|ddd|eee'.getRight('|'))

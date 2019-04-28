@@ -1,6 +1,16 @@
 # yao-stringutils
 
-一个JAVA程序员编写的字符串处理工具，诸如toString,isEmpty,isTrimEmpty,contains,getLeft,getRight,getSection……函数。
+字符串处理工具，诸如'contains', 'toLength', 'getLeft', 'getLeftOuter', 'getRight', 'getRightOuter', 'getSection', 'getSectionOuter'……函数。
+持续更新中……
+
+```
+npm install yao-stringutils
+```
+
+## 引入模块
+```
+const { StringUtils, bindStringPrototype }  = require('yao-stringutils');
+```
 
 ## StringUtils
 
@@ -268,8 +278,9 @@ getSectionOuter aaa|bbb|ccc|ddd|eee
 ## bindStringPrototype()
 
 ```
-bindStringPrototype()
 console.log('=== bindStringPrototype() =========================================')
+let methods = bindStringPrototype()
+console.log('binded', methods.join(','));
 console.log('contains'.toLength(20), '|', 'abc'.contains('b'))
 console.log('toLength'.toLength(20), '|', 'abc'.toLength(8) + "|")
 console.log('getRight'.toLength(20), '|', 'aaa|bbb|ccc|ddd|eee'.getRight('|'))
@@ -282,6 +293,7 @@ console.log('getSectionOuter'.toLength(20), '|', 'aaa|bbb|ccc|ddd|eee'.getSectio
 输出
 ```
 === bindStringPrototype() =========================================
+binded contains,toLength,getLeft,getLeftOuter,getRight,getRightOuter,getSection,getSectionOuter
 contains             | true
 toLength             | abc     |
 getRight             | eee

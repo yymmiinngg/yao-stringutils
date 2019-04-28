@@ -1,9 +1,12 @@
 class StringUtils {
 
     /**
-     * 将对象转换成字符串，undefined、null、NaN 将被转成 “”
-     * @param {object} obj 对象
-     * @param {object} options 配置 {_NaN_ = '', _null_ = '', _undefined_ = ''} ，_NaN_='' 表示：如果 obj == NaN 则返回''，其它依此类推。
+     * 将对象转换成字符串，undefined、null、NaN 将被转成 _undefined_、_null_、_NaN_
+     * @param {Object} obj 对象
+     * @param {Object} [options = { _NaN_ : '', _null_ : '', _undefined_ : '' }] - 配置。
+     * @param {string} [options._NaN_ = ''] NaN的替身，如果 obj == NaN 则返回''
+     * @param {string} [options._null_ = ''] null的替身，如果 obj == _null_ 则返回''
+     * @param {string} [options._undefined_= ''] undefined的替身，如果 obj == _undefined_ 则返回''
      * @returns {string} 返回字符串
      */
     static toString(obj, options = {}) {
@@ -81,7 +84,10 @@ class StringUtils {
      * 将字符串填充或截断成指定宽度
      * @param {string} str 源字符串
      * @param {number} len 指定长度
-     * @param {object} options 配置对象 { filler: string, align: number, ellipsis: string }, filler: 用于作填充的字符(默认' '); align: 对方方式(-1居左，0居中，1居右，默认-1); ellipsis: 省略字符(默认'...')
+     * @param {Object} [options] 配置对象
+     * @param {string} [options.filler = " "] 用于作填充的字符(默认' ')
+     * @param {number} [options.align = -1] 对方方式(-1居左，0居中，1居右，默认-1)
+     * @param {string} [options.ellipsis = '...'] 省略字符(默认'...')
      * @returns {string} 处理后的字符串
      */
     static toLength(str, len, options = {}) {
