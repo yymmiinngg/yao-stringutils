@@ -158,7 +158,7 @@ class StringUtils {
         if (pos === '') return str;
         let p = str.lastIndexOf(pos);
         if (p == -1) { return null; }
-        return str.substring(p + 1);
+        return str.substring(p + pos.length);
     }
 
     /**
@@ -174,7 +174,7 @@ class StringUtils {
         if (pos === '') return str;
         let p = str.indexOf(pos);
         if (p == -1) { return null; }
-        return str.substring(p + 1);
+        return str.substring(p + pos.length);
     }
 
     /**
